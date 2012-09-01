@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameEnd : CCScene {
+@interface GameEnd : CCLayerColor {
     
 }
-
++(CCScene *) scene;
 @end

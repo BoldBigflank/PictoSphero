@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface SpheroDraw : CCScene {
+@interface SpheroDraw : CCLayerColor {
     
 }
-
++(CCScene *) scene;
 @end

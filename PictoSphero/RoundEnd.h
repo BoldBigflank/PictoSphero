@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface RoundEnd : CCScene {
+@interface RoundEnd : CCLayerColor {
     
 }
-
++(CCScene *) scene;
 @end

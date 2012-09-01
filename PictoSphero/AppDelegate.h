@@ -22,6 +22,7 @@
     // Sphero
     bool robotOnline;
     int packetCounter;
+    CGPoint currentPos;
 }
 
 @property (nonatomic, retain) UIWindow *window;

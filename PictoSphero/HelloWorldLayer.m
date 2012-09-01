@@ -37,27 +37,19 @@
 // on "init" you need to initialize your instance
 -(id) init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super init]) ) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
+    if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        NSString *className = [NSString stringWithFormat:@"Class %@", [[self class] description]];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:className fontName:@"Marker Felt" fontSize:64];
+        
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+		label.position =  ccp( winSize.width /2 , winSize.height/2 );
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-	}
-	return self;
+    }
+    return self;
 }
 
 // on "dealloc" you need to release all your retained objects

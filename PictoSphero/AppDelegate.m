@@ -243,6 +243,7 @@
         RKDeviceSensorsData *sensorsData = [sensorsAsyncData.dataFrames lastObject];
         RKLocatorData *locatorData = sensorsData.locatorData;
         
+        currentPos = ccp(locatorData.position.x, locatorData.position.y);
         // Use destination point/heading to determine whether to stop
         
         // Print Locator Values

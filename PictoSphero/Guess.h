@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Guess : CCScene {
+@interface Guess : CCLayerColor {
     
 }
-
++(CCScene *) scene;
 @end

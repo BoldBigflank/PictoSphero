@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Intro : CCScene {
+@interface Intro : CCLayerColor {
     
 }
-
++(CCScene *) scene;
 @end
