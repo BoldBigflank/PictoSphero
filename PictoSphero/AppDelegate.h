@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import "RobotUIKit/RobotUIKit.h"
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
 	UIWindow *window_;
 	UINavigationController *navController_;
+    RUICalibrateGestureHandler *calibrateHandler;
+    
 
 	CCDirectorIOS	*director_;							// weak ref
+
+    // Sphero
+    bool robotOnline;
+    int packetCounter;
 }
 
 @property (nonatomic, retain) UIWindow *window;

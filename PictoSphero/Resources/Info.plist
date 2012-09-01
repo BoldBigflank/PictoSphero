@@ -51,10 +51,8 @@
 	</array>
 	<key>UISupportedExternalAccessoryProtocols</key>
 	<array>
-		<string></string>
+		<string>com.orbotix.robotprotocol</string>
 	</array>
-	<key>com.orbotix.robotprotocol</key>
-	<string></string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

@@ -10,6 +10,10 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "RobotKit/RobotKit.h"
+
+#define TOTAL_PACKET_COUNT 200
+#define PACKET_THRESHOLD 50
 
 @implementation AppController
 
@@ -17,7 +21,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Create the main window
+    /*Register for application lifecycle notifications so we known when to connect and disconnect from the robot*/
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+    
+    robotOnline = NO;
+
+    // Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
 
@@ -86,7 +96,9 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	
+
+    //Setup a calibration gesture handler on our view to handle rotation gestures and give visual feeback to the user.
+    calibrateHandler = [[RUICalibrateGestureHandler alloc] initWithView:navController_.view];
 	return YES;
 }
 
@@ -96,10 +108,15 @@
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
-
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
 {
+    /*When the application is entering the background we need to close the connection to the robot*/
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
+    [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:0.0];
+    [[RKRobotProvider sharedRobotProvider] closeRobotConnection];
+    robotOnline = NO;
+    
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
 }
@@ -107,6 +124,7 @@
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
+    [self setupRobotConnection];
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
 }
@@ -145,8 +163,101 @@
 {
 	[window_ release];
 	[navController_ release];
-
-	[super dealloc];
+    
+    [super dealloc];
 }
+
+// Sphero functions
+-(void)setupRobotConnection {
+    NSLog(@"setupRobotConnection");
+    /*Try to connect to the robot*/
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRobotOnline) name:RKDeviceConnectionOnlineNotification object:nil];
+    if ([[RKRobotProvider sharedRobotProvider] isRobotUnderControl]) {
+        [[RKRobotProvider sharedRobotProvider] openRobotConnection];
+    }
+}
+
+- (void)handleRobotOnline {
+    /*The robot is now online, we can begin sending commands*/
+    if(!robotOnline) {
+        /* Send commands to Sphero Here: */
+        [RKRGBLEDOutputCommand sendCommandWithRed:1.0 green:0.0 blue:0.0];
+        
+        // Register for asynchronise data streaming packets
+        [[RKDeviceMessenger sharedMessenger] addDataStreamingObserver:self selector:@selector(handleAsyncData:)];
+        /* Start locator streaming */
+        [self startLocatorStreaming];
+        
+    }
+    robotOnline = YES;
+}
+
+-(void)startLocatorStreaming {
+    
+    // Note: If your ball has Firmware < 1.20 then these Quaternions
+    //       will simply show up as zeros.
+    
+    // Sphero samples this data at 400 Hz.  The divisor sets the sample
+    // rate you want it to store frames of data.  In this case 400Hz/40 = 10Hz
+    uint16_t divisor = 20;
+    
+    // Packet frames is the number of frames Sphero will store before it sends
+    // an async data packet to the iOS device
+    uint16_t packetFrames = 1;
+    
+    // Count is the number of async data packets Sphero will send you before
+    // it stops.  You want to register for a finite count and then send the command
+    // again once you approach the limit.  Otherwise data streaming may be left
+    // on when your app crashes, putting Sphero in a bad state.
+    uint8_t count = TOTAL_PACKET_COUNT;
+    
+    // Reset finite packet counter
+    packetCounter = 0;
+    
+    // Register for Locator X,Y position, and X,Y velocity
+    RKDataStreamingMask sensorMask = RKDataStreamingMaskLocatorAll;
+    
+    //// Start data streaming for the locator data. The update rate is set to 20Hz with
+    //// one sample per update, so the sample rate is 10Hz. Packets are sent continuosly.
+    [RKSetDataStreamingCommand sendCommandWithSampleRateDivisor:divisor
+                                                   packetFrames:packetFrames
+                                                     sensorMask:sensorMask
+                                                    packetCount:count];
+}
+
+- (void)handleAsyncData:(RKDeviceAsyncData *)asyncData
+{
+    // Need to check which type of async data is received as this method will be called for
+    // data streaming packets and sleep notification packets. We are going to ingnore the sleep
+    // notifications.
+    if ([asyncData isKindOfClass:[RKDeviceSensorsAsyncData class]]) {
+        
+        // Check to see if we need to request more packets
+        packetCounter++;
+        if( packetCounter > (TOTAL_PACKET_COUNT-PACKET_THRESHOLD)) {
+            [self startLocatorStreaming];
+        }
+        
+        // Grab specific sensor data objects from the main sensor object
+        RKDeviceSensorsAsyncData *sensorsAsyncData = (RKDeviceSensorsAsyncData *)asyncData;
+        RKDeviceSensorsData *sensorsData = [sensorsAsyncData.dataFrames lastObject];
+        RKLocatorData *locatorData = sensorsData.locatorData;
+        
+        // Use destination point/heading to determine whether to stop
+        
+        // Print Locator Values
+//        self.xValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.position.x, @"cm"];
+//        self.yValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.position.y, @"cm"];
+//        self.xVelocityValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.velocity.x, @"cm/s"];
+//        self.yVelocityValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.velocity.y, @"cm/s"];
+    }
+}
+
+-(void)moveToX:(CGPoint)point{
+    // Set destination point/heading
+    // stop it, rotate it, Send it off
+    
+}
+
 @end
 
