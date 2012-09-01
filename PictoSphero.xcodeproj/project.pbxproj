@@ -141,6 +141,11 @@
 		FA6E57BD15F29AB9007A6A54 /* Guess.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57BC15F29AB9007A6A54 /* Guess.m */; };
 		FA6E57C015F29AE4007A6A54 /* RoundEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57BF15F29AE4007A6A54 /* RoundEnd.m */; };
 		FA6E57C315F29AF9007A6A54 /* GameEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57C215F29AF9007A6A54 /* GameEnd.m */; };
+		FA6E57C615F29C68007A6A54 /* RobotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E57C415F29C68007A6A54 /* RobotKit.framework */; };
+		FA6E57C715F29C69007A6A54 /* RobotUIKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA6E57C515F29C68007A6A54 /* RobotUIKit.bundle */; };
+		FA6E57C915F29C94007A6A54 /* RobotUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E57C815F29C94007A6A54 /* RobotUIKit.framework */; };
+		FA6E57CE15F29CCD007A6A54 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E57CC15F29CC0007A6A54 /* CoreMotion.framework */; };
+		FA6E57CF15F29CCD007A6A54 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E57CA15F29CB8007A6A54 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -424,6 +429,11 @@
 		FA6E57BF15F29AE4007A6A54 /* RoundEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundEnd.m; sourceTree = "<group>"; };
 		FA6E57C115F29AF9007A6A54 /* GameEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEnd.h; sourceTree = "<group>"; };
 		FA6E57C215F29AF9007A6A54 /* GameEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEnd.m; sourceTree = "<group>"; };
+		FA6E57C415F29C68007A6A54 /* RobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RobotKit.framework; sourceTree = "<group>"; };
+		FA6E57C515F29C68007A6A54 /* RobotUIKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RobotUIKit.bundle; sourceTree = "<group>"; };
+		FA6E57C815F29C94007A6A54 /* RobotUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RobotUIKit.framework; sourceTree = "<group>"; };
+		FA6E57CA15F29CB8007A6A54 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		FA6E57CC15F29CC0007A6A54 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +441,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6E57CE15F29CCD007A6A54 /* CoreMotion.framework in Frameworks */,
+				FA6E57CF15F29CCD007A6A54 /* ExternalAccessory.framework in Frameworks */,
 				FA6E561215F1F619007A6A54 /* QuartzCore.framework in Frameworks */,
 				FA6E561415F1F619007A6A54 /* OpenGLES.framework in Frameworks */,
 				FA6E561615F1F619007A6A54 /* OpenAL.framework in Frameworks */,
@@ -440,6 +452,8 @@
 				FA6E561E15F1F619007A6A54 /* Foundation.framework in Frameworks */,
 				FA6E562015F1F619007A6A54 /* CoreGraphics.framework in Frameworks */,
 				FA6E562215F1F61A007A6A54 /* GameKit.framework in Frameworks */,
+				FA6E57C615F29C68007A6A54 /* RobotKit.framework in Frameworks */,
+				FA6E57C915F29C94007A6A54 /* RobotUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +480,11 @@
 		FA6E561015F1F619007A6A54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E57CC15F29CC0007A6A54 /* CoreMotion.framework */,
+				FA6E57CA15F29CB8007A6A54 /* ExternalAccessory.framework */,
+				FA6E57C815F29C94007A6A54 /* RobotUIKit.framework */,
+				FA6E57C415F29C68007A6A54 /* RobotKit.framework */,
+				FA6E57C515F29C68007A6A54 /* RobotUIKit.bundle */,
 				FA6E561115F1F619007A6A54 /* QuartzCore.framework */,
 				FA6E561315F1F619007A6A54 /* OpenGLES.framework */,
 				FA6E561515F1F619007A6A54 /* OpenAL.framework */,
@@ -947,6 +966,7 @@
 				FA6E563A15F1F61A007A6A54 /* Icon@2x.png in Resources */,
 				FA6E563D15F1F61A007A6A54 /* iTunesArtwork in Resources */,
 				FA6E578015F1F61C007A6A54 /* ChangeLog in Resources */,
+				FA6E57C715F29C69007A6A54 /* RobotUIKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1140,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PictoSphero/Prefix.pch;
@@ -1128,6 +1152,9 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-lsqlite3",
+					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1139,6 +1166,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PictoSphero/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"PictoSphero/libs/kazmath/include\"";
@@ -1146,6 +1177,9 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"-lsqlite3",
+					"-all_load",
+					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
