@@ -134,6 +134,13 @@
 		FA6E57A215F1F61D007A6A54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57A115F1F61D007A6A54 /* AppDelegate.m */; };
 		FA6E57A515F1F61D007A6A54 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57A415F1F61D007A6A54 /* HelloWorldLayer.m */; };
 		FA6E57A815F1F61D007A6A54 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57A715F1F61D007A6A54 /* IntroLayer.m */; };
+		FA6E57B115F299E2007A6A54 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57B015F299E2007A6A54 /* Title.m */; };
+		FA6E57B415F299F0007A6A54 /* Error.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57B315F299F0007A6A54 /* Error.m */; };
+		FA6E57B715F29A3F007A6A54 /* Intro.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57B615F29A3F007A6A54 /* Intro.m */; };
+		FA6E57BA15F29AA3007A6A54 /* SpheroDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57B915F29AA3007A6A54 /* SpheroDraw.m */; };
+		FA6E57BD15F29AB9007A6A54 /* Guess.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57BC15F29AB9007A6A54 /* Guess.m */; };
+		FA6E57C015F29AE4007A6A54 /* RoundEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57BF15F29AE4007A6A54 /* RoundEnd.m */; };
+		FA6E57C315F29AF9007A6A54 /* GameEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E57C215F29AF9007A6A54 /* GameEnd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -403,6 +410,20 @@
 		FA6E57A415F1F61D007A6A54 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		FA6E57A615F1F61D007A6A54 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		FA6E57A715F1F61D007A6A54 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		FA6E57AF15F299E2007A6A54 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
+		FA6E57B015F299E2007A6A54 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
+		FA6E57B215F299F0007A6A54 /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
+		FA6E57B315F299F0007A6A54 /* Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Error.m; sourceTree = "<group>"; };
+		FA6E57B515F29A3F007A6A54 /* Intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intro.h; sourceTree = "<group>"; };
+		FA6E57B615F29A3F007A6A54 /* Intro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Intro.m; sourceTree = "<group>"; };
+		FA6E57B815F29AA3007A6A54 /* SpheroDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpheroDraw.h; sourceTree = "<group>"; };
+		FA6E57B915F29AA3007A6A54 /* SpheroDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpheroDraw.m; sourceTree = "<group>"; };
+		FA6E57BB15F29AB9007A6A54 /* Guess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guess.h; sourceTree = "<group>"; };
+		FA6E57BC15F29AB9007A6A54 /* Guess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guess.m; sourceTree = "<group>"; };
+		FA6E57BE15F29AE4007A6A54 /* RoundEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundEnd.h; sourceTree = "<group>"; };
+		FA6E57BF15F29AE4007A6A54 /* RoundEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundEnd.m; sourceTree = "<group>"; };
+		FA6E57C115F29AF9007A6A54 /* GameEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEnd.h; sourceTree = "<group>"; };
+		FA6E57C215F29AF9007A6A54 /* GameEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEnd.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +482,7 @@
 		FA6E562315F1F61A007A6A54 /* PictoSphero */ = {
 			isa = PBXGroup;
 			children = (
+				FA6E57AE15F29939007A6A54 /* Scenes */,
 				FA6E57A015F1F61D007A6A54 /* AppDelegate.h */,
 				FA6E57A115F1F61D007A6A54 /* AppDelegate.m */,
 				FA6E57A315F1F61D007A6A54 /* HelloWorldLayer.h */,
@@ -841,6 +863,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FA6E57AE15F29939007A6A54 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E57AF15F299E2007A6A54 /* Title.h */,
+				FA6E57B015F299E2007A6A54 /* Title.m */,
+				FA6E57B215F299F0007A6A54 /* Error.h */,
+				FA6E57B315F299F0007A6A54 /* Error.m */,
+				FA6E57B515F29A3F007A6A54 /* Intro.h */,
+				FA6E57B615F29A3F007A6A54 /* Intro.m */,
+				FA6E57B815F29AA3007A6A54 /* SpheroDraw.h */,
+				FA6E57B915F29AA3007A6A54 /* SpheroDraw.m */,
+				FA6E57BB15F29AB9007A6A54 /* Guess.h */,
+				FA6E57BC15F29AB9007A6A54 /* Guess.m */,
+				FA6E57BE15F29AE4007A6A54 /* RoundEnd.h */,
+				FA6E57BF15F29AE4007A6A54 /* RoundEnd.m */,
+				FA6E57C115F29AF9007A6A54 /* GameEnd.h */,
+				FA6E57C215F29AF9007A6A54 /* GameEnd.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1019,6 +1062,13 @@
 				FA6E57A215F1F61D007A6A54 /* AppDelegate.m in Sources */,
 				FA6E57A515F1F61D007A6A54 /* HelloWorldLayer.m in Sources */,
 				FA6E57A815F1F61D007A6A54 /* IntroLayer.m in Sources */,
+				FA6E57B115F299E2007A6A54 /* Title.m in Sources */,
+				FA6E57B415F299F0007A6A54 /* Error.m in Sources */,
+				FA6E57B715F29A3F007A6A54 /* Intro.m in Sources */,
+				FA6E57BA15F29AA3007A6A54 /* SpheroDraw.m in Sources */,
+				FA6E57BD15F29AB9007A6A54 /* Guess.m in Sources */,
+				FA6E57C015F29AE4007A6A54 /* RoundEnd.m in Sources */,
+				FA6E57C315F29AF9007A6A54 /* GameEnd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
