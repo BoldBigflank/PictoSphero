@@ -13,4 +13,6 @@
     
 }
 +(CCScene *) scene;
+-(void)setWinner:(NSString *)winner;
+
 @end

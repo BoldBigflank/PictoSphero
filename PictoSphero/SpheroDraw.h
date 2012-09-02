@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 
 @interface SpheroDraw : CCLayerColor {
+    CCLabelTTF *timerLabel;
+    float timer;
     
 }
 +(CCScene *) scene;

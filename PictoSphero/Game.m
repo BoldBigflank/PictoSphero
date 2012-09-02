@@ -11,13 +11,14 @@
 @implementation Game
 
 @synthesize currentImage=currentImage_;
-@synthesize redScore=redScore_, blueScore=blueScore_, roundNumber=roundNumber_, teams=teams_;
+@synthesize redScore=redScore_, blueScore=blueScore_, roundNumber=roundNumber_, teams=teams_, timer=timer_, guessColor=guessColor_;
 
 -(id)init{
     if((self = [super init])){
         self.roundNumber = 1;
         self.blueScore = 0;
         self.redScore = 0;
+        self.timer = 10;
     }
     return self;
 }

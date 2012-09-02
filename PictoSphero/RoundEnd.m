@@ -40,4 +40,9 @@
     }
     return self;
 }
+
+-(void)setWinner:(NSString *)winner{
+    // red, blue, none
+    
+}
 @end

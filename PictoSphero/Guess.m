@@ -7,6 +7,8 @@
 //
 
 #import "Guess.h"
+#import "AppDelegate.h"
+#import "Game.h"
 
 
 @implementation Guess
@@ -26,8 +28,12 @@
 }
 -(id) init
 {
-    if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
+    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+    Game *game = [appD game];
+    
+    if( (self=[super initWithColor:game.guessColor] )) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
         NSString *className = [NSString stringWithFormat:@"Class %@", [[self class] description]];
         CCLabelTTF *label = [CCLabelTTF labelWithString:className fontName:@"Marker Felt" fontSize:64];
         
@@ -36,8 +42,13 @@
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
-		
+        
     }
     return self;
 }
+-(void)onLoad{
+    
+    [[CCDirector sharedDirector] popScene];
+}
+
 @end
