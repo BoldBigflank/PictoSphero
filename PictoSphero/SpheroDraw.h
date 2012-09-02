@@ -20,6 +20,7 @@
     float timer;
     bool redBuzzed;
     bool blueBuzzed;
+    int guesser;
     
 }
 

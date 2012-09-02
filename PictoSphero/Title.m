@@ -66,6 +66,7 @@
 		[playMenu addChild:playTeam];
         
         [self addChild:playMenu z:10];
+
     }
     return self;
 }
@@ -87,6 +88,9 @@
     // If there is not a sphero attached, hit the error
     Game *game = [[Game alloc] init];
     game.teams = (menuItem.tag == MENU_SOLO) ? 1 : 2;
+    
+    //DEBUG
+    [game newRound];
     
     AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
     [appD setGame:game];

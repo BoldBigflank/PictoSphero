@@ -58,7 +58,7 @@
                                                            selectedImage: @"blanklabel.png"
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
-        guessA.scale = 0.15 * winSize.height / guessA.contentSize.height;
+        guessA.scale = 0.4 * winSize.height / guessA.contentSize.height;
         guessA.position = ccp(0.25 * winSize.width, 0.75 * winSize.height);
         guessA.tag = GUESS_A;
 		[guessMenu addChild:guessA];
@@ -67,7 +67,7 @@
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
         guessB.position = ccp(0.75 * winSize.width, 0.75 * winSize.height);
-        guessB.scale = 0.15 * winSize.height / guessB.contentSize.height;
+        guessB.scale = 0.4 * winSize.height / guessB.contentSize.height;
         guessB.tag = GUESS_B;
 		[guessMenu addChild:guessB];
         
@@ -75,7 +75,7 @@
                                                            selectedImage: @"blanklabel.png"
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
-        guessC.scale = 0.15 * winSize.height / guessC.contentSize.height;
+        guessC.scale = 0.4 * winSize.height / guessC.contentSize.height;
         guessC.position = ccp(0.25 * winSize.width, 0.25 * winSize.height);
         guessC.tag = GUESS_C;
 		[guessMenu addChild:guessC];
@@ -84,7 +84,7 @@
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
         guessD.position = ccp(0.75 * winSize.width, 0.25 * winSize.height);
-        guessD.scale = 0.15 * winSize.height / guessD.contentSize.height;
+        guessD.scale = 0.4 * winSize.height / guessD.contentSize.height;
         guessD.tag = GUESS_D;
 		[guessMenu addChild:guessD];
         
@@ -96,26 +96,8 @@
 
 -(void)makeGuess:(CCMenuItem*)menuItem
 {
-    NSLog(@"makeGuess %@", [menuItem description]);
-    switch (menuItem.tag) {
-        case GUESS_A:
-            NSLog(@"GUESS_A");
-            break;
-        case GUESS_B:
-            NSLog(@"GUESS_B");
-            break;
-        case GUESS_C:
-            NSLog(@"GUESS_C");
-            break;
-        case GUESS_D:
-            NSLog(@"GUESS_D");
-            break;
-        default:
-            break;
-    }
-    self.visible = NO;
+    NSLog(@"makeGuess %d", menuItem.tag);
     [(SpheroDraw *)[[self parent] getChildByTag:40] returnWithGuess:menuItem.tag];
-    
 }
 
 -(void)showGuess:(ccColor3B)color{

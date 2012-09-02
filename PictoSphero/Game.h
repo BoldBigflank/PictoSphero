@@ -16,19 +16,21 @@
     int blueScore_;
     int teams_;
     int timer_;
+    int maxScore_;
     ccColor4B guessColor_;
     
-    UIImage * currentImage_;
+    NSString * currentImage_;
 }
 
--(UIImage *)newRound;
+-(void)newRound;
 
 @property (nonatomic) int roundNumber;
 @property (nonatomic) int redScore;
 @property (nonatomic) int blueScore;
 @property (nonatomic) int teams;
 @property (nonatomic) int timer;
+@property (nonatomic) int maxScore;
 @property (nonatomic) ccColor4B guessColor;
-@property (nonatomic, retain) UIImage *currentImage;
+@property (nonatomic, retain) NSString *currentImage;
 
 @end

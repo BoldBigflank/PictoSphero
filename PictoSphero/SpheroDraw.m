@@ -58,6 +58,7 @@
         Game *game = [appD game];
         
         // Game newRound
+        [game newRound];
         // Guess loadEntries
         
         
@@ -126,6 +127,7 @@
 {
     if(menuItem.tag == GUESS_RED && redBuzzed) return;
     if(menuItem.tag == GUESS_BLUE && blueBuzzed) return;
+    guesser = menuItem.tag;
     
 //    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
 //    Game *game = [appD game];
@@ -141,15 +143,37 @@
     _guessLayer.visible = YES;
     _guessLayer.scale = 0;
     [_guessLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:1.0]];
-    //[[CCDirector sharedDirector] pushScene:[Guess scene]];
 }
 
 -(void)returnWithGuess:(int)guessNumber{
     NSLog(@"returnWithGuess %i", guessNumber);
-    [self schedule: @selector(tick2:) interval:0.1];
-    BuzzMenu.isTouchEnabled = TRUE;
+    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+    Game *game = [appD game];
+
+    if(guessNumber == 1){ // Correct number
+        _roundEndLayer.visible = YES;
+        if(guesser == GUESS_RED) game.redScore += 1;
+        if(guesser == GUESS_BLUE) game.blueScore += 1;
+        _roundEndLayer.visible = YES;
+        _roundEndLayer.scale = 0;
+        _roundEndLayer.isTouchEnabled = YES;
+        NSString * winnerString = (guesser == GUESS_RED) ? @"red" : @"blue";
+        [_roundEndLayer setWinner:winnerString];
+        _guessLayer.isTouchEnabled = NO;
+        //[_guessLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:0.0]];
+        [_roundEndLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:1.0]];
+    } else {
+        if(redBuzzed && blueBuzzed){
+            [self endRound];
+        }
+        else{
+            _guessLayer.visible = NO;
+            BuzzMenu.isTouchEnabled = YES;
+            [self schedule: @selector(tick2:) interval:0.1];
+        }
+    }
 //    _guessLayer.isTouchEnabled = FALSE;
-    _guessLayer.visible = FALSE;
+    
 }
 
 -(void) tick2: (ccTime) dt
@@ -158,12 +182,23 @@
     timerLabel.string = [NSString stringWithFormat:@"%i", (int)timer];
     if(timer < 1){
         NSLog(@"Time's up!");
-        [self unschedule:@selector(tick2:)];
-        [_roundEndLayer setWinner:@""];
-        _roundEndLayer.visible = YES;
+        [self endRound];
+
         //[[CCDirector sharedDirector] replaceScene:[RoundEnd scene]];
     }
     
+}
+-(void) endRound
+{
+    [self unschedule:@selector(tick2:)];
+    BuzzMenu.isTouchEnabled = NO;
+    [_roundEndLayer setWinner:@""];
+    _roundEndLayer.visible = YES;
+    _roundEndLayer.scale = 0;
+    _roundEndLayer.isTouchEnabled = YES;
+    _guessLayer.isTouchEnabled = NO;
+    //[_guessLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:0.0]];
+    [_roundEndLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:1.0]];
 }
 
 @end

@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface RoundEnd : CCLayerColor {
-    
+    CCLabelTTF *winnerLabel;
+    CCSprite *picture;
 }
 +(CCScene *) scene;
 -(void)setWinner:(NSString *)winner;

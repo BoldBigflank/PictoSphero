@@ -51,27 +51,27 @@
 
         CCSprite * redLabel = [CCSprite spriteWithFile:@"red-large.png"];
         redLabel.scale = 0.15 * winSize.height / redLabel.contentSize.height;
-        redLabel.position = ccp(0.25 * winSize.width, winSize.height - (redLabel.contentSize.height * redLabel.scale / 2));
+        redLabel.position = ccp(0.15 * winSize.width, winSize.height - (redLabel.contentSize.height * redLabel.scale / 2));
         
         [self addChild: redLabel];
         
         CCLabelTTF *redScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", game.redScore] fontName:@"Arial" fontSize:24];
         redScore.color = ccc3(255, 0, 0);
         redScore.scale = redLabel.contentSize.height * redLabel.scale / redScore.contentSize.height;
-        redScore.position = ccp(0.25 * winSize.width, winSize.height - (redScore.contentSize.height * redScore.scale / 2) - (redLabel.contentSize.height * redLabel.scale) );
+        redScore.position = ccp(0.15 * winSize.width, winSize.height - (redScore.contentSize.height * redScore.scale / 2) - (redLabel.contentSize.height * redLabel.scale) );
         [self addChild:redScore];
         
         
         CCSprite *blueLabel = [CCSprite spriteWithFile:@"blue-large.png"];
         blueLabel.scale = 0.15 * winSize.height / blueLabel.contentSize.height;
-        blueLabel.position = ccp(0.75 * winSize.width, winSize.height - (blueLabel.contentSize.height * blueLabel.scale / 2));
+        blueLabel.position = ccp(0.85 * winSize.width, winSize.height - (blueLabel.contentSize.height * blueLabel.scale / 2));
         
         [self addChild:blueLabel];
         
         CCLabelTTF *blueScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", game.blueScore] fontName:@"Arial" fontSize:24];
         blueScore.color = ccc3(0, 0, 255);
         blueScore.scale = blueLabel.contentSize.height * blueLabel.scale / blueScore.contentSize.height;
-        blueScore.position = ccp(0.75 * winSize.width, winSize.height - (blueScore.contentSize.height * blueScore.scale / 2) - (blueLabel.contentSize.height * blueLabel.scale) );
+        blueScore.position = ccp(0.85 * winSize.width, winSize.height - (blueScore.contentSize.height * blueScore.scale / 2) - (blueLabel.contentSize.height * blueLabel.scale) );
         [self addChild:blueScore];
         
         floor = [CCSprite spriteWithFile:@"instruction-floor.png"];
