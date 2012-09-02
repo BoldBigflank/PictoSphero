@@ -17,7 +17,8 @@
 
 @implementation AppController
 
-@synthesize window=window_, navController=navController_, director=director_;
+@synthesize window=window_, navController=navController_, director=director_, robotOnline=robotOnline_;
+@synthesize teams, round, redScore, blueScore;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,7 +26,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
     
-    robotOnline = NO;
+    self.robotOnline = NO;
 
     // Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -115,7 +116,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RKDeviceConnectionOnlineNotification object:nil];
     [RKRGBLEDOutputCommand sendCommandWithRed:0.0 green:0.0 blue:0.0];
     [[RKRobotProvider sharedRobotProvider] closeRobotConnection];
-    robotOnline = NO;
+    robotOnline_ = NO;
     
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
@@ -179,7 +180,7 @@
 
 - (void)handleRobotOnline {
     /*The robot is now online, we can begin sending commands*/
-    if(!robotOnline) {
+    if(!robotOnline_) {
         /* Send commands to Sphero Here: */
         [RKRGBLEDOutputCommand sendCommandWithRed:1.0 green:0.0 blue:0.0];
         
@@ -189,7 +190,7 @@
         [self startLocatorStreaming];
         
     }
-    robotOnline = YES;
+    robotOnline_ = YES;
 }
 
 -(void)startLocatorStreaming {

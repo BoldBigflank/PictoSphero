@@ -1,5 +1,5 @@
 //
-//  Intro.h
+//  Error.h
 //  PictoSphero
 //
 //  Created by Alex Swan on 9/1/12.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Intro : CCLayerColor {
+@interface SpheroError : CCLayerColor {
     
 }
 +(CCScene *) scene;

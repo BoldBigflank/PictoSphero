@@ -20,11 +20,21 @@
 	CCDirectorIOS	*director_;							// weak ref
 
     // Sphero
-    bool robotOnline;
+    bool robotOnline_;
     int packetCounter;
+    int round_;
+    int redScore_;
+    int blueScore_;
     CGPoint currentPos;
 }
 
+-(void)setupRobotConnection;
+
+@property (nonatomic) bool robotOnline;
+@property (nonatomic) int teams;
+@property (nonatomic) int redScore;
+@property (nonatomic) int blueScore;
+@property (nonatomic) int round;
 @property (nonatomic, retain) UIWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;

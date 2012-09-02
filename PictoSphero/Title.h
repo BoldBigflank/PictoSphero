@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface Title : CCLayerColor {
-    
+    CCSprite *logoSprite;
 }
 
 +(CCScene *) scene;
