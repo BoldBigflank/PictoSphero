@@ -7,11 +7,10 @@
 //
 
 #import "Game.h"
-#import <UIKit/UIKit.h>
 
 @implementation Game
 
-@synthesize currentImage=currentImage_;
+@synthesize currentImage=currentImage_, choices=choices_;
 @synthesize redScore=redScore_, blueScore=blueScore_, roundNumber=roundNumber_, teams=teams_, timer=timer_, guessColor=guessColor_, maxScore=maxScore_;
 
 -(id)init{
@@ -29,10 +28,23 @@
 -(void)newRound{
     // Pick a picture from the collection
     self.currentImage = @"Default.png";
-    NSArray *pictureArray = [[NSBundle mainBundle] pathsForResourcesOfType:nil inDirectory:nil];
+    NSArray *files = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:nil];
     
-    int chosenPic = arc4random() % pictureArray.count;
-    self.currentImage = [pictureArray objectAtIndex:chosenPic];
+
+    if(files.count > 0){
+        int chosenPic = arc4random() % files.count;
+        self.currentImage = [[files objectAtIndex:chosenPic] lastPathComponent];
+        
+        NSMutableArray *choices = [[NSMutableArray alloc] initWithObjects:[[files objectAtIndex:chosenPic] lastPathComponent], nil];
+        while ([choices count] < 4){
+            int choiceNumber = arc4random() % files.count;
+            if(![choices containsObject:[[files objectAtIndex:choiceNumber] lastPathComponent]]){
+                [choices addObject:[[files objectAtIndex:choiceNumber] lastPathComponent]];
+            }
+        }
+        self.choices = [[NSArray alloc] initWithArray:choices];
+    }
+    
     
 }
 

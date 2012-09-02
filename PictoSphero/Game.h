@@ -20,6 +20,7 @@
     ccColor4B guessColor_;
     
     NSString * currentImage_;
+    NSArray * choices_;
 }
 
 -(void)newRound;
@@ -32,5 +33,7 @@
 @property (nonatomic) int maxScore;
 @property (nonatomic) ccColor4B guessColor;
 @property (nonatomic, retain) NSString *currentImage;
+@property (nonatomic, retain) NSArray *choices;
+
 
 @end

@@ -60,7 +60,7 @@
         // Game newRound
         [game newRound];
         // Guess loadEntries
-        
+        [guessLayer setupChoices:[game choices]];
         
         timer = (float)game.timer;
         

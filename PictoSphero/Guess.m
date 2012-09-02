@@ -37,6 +37,7 @@
     if( (self=[super init] )) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
+        
         NSString *className = [NSString stringWithFormat:@"Class %@", [[self class] description]];
         CCLabelTTF *label = [CCLabelTTF labelWithString:className fontName:@"Marker Felt" fontSize:64];
         
@@ -61,6 +62,7 @@
         guessA.scale = 0.4 * winSize.height / guessA.contentSize.height;
         guessA.position = ccp(0.25 * winSize.width, 0.75 * winSize.height);
         guessA.tag = GUESS_A;
+
 		[guessMenu addChild:guessA];
         CCMenuItemImage *guessB = [CCMenuItemImage itemWithNormalImage:@"blanklabel.png"
                                                            selectedImage: @"blanklabel.png"
@@ -88,7 +90,7 @@
         guessD.tag = GUESS_D;
 		[guessMenu addChild:guessD];
         
-        [self addChild:guessMenu z:10];
+        [self addChild:guessMenu z:10];        
         
     }
     return self;
@@ -107,6 +109,18 @@
     // 
 }
 
+-(void)setupChoices:(NSArray *)choices{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    for (NSString *choice in choices){
+        CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:choice fontName:@"Arial" fontSize:48];
+        choiceLabel.color = ccc3(0, 255, 0);
+        choiceLabel.scale = .3 * winSize.height / choiceLabel.contentSize.height;
+        choiceLabel.position = ccp(0.5 * winSize.width, winSize.height - (choiceLabel.contentSize.height * choiceLabel.scale / 2) );
+        [self addChild:choiceLabel];
+        
+    }
+}
 
 
 @end

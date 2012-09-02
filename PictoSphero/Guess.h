@@ -14,5 +14,5 @@
 }
 +(CCScene *) scene;
 -(void)showGuess:(ccColor3B)color;
-
+-(void)setupChoices:(NSArray*)choices;
 @end
