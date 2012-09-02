@@ -7,6 +7,10 @@
 //
 
 #import "SpheroDraw.h"
+#import "AppDelegate.h"
+#import "Game.h"
+
+#import "Guess.h"
 
 
 @implementation SpheroDraw
@@ -36,8 +40,12 @@
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
-		
+        
+        
     }
     return self;
 }
+
+
+
 @end

@@ -8,9 +8,11 @@
 
 #import "Title.h"
 #import "AppDelegate.h"
+#import "Game.h"
 
 #import "SpheroError.h"
 #import "RoundBegin.h"
+
 
 #define MENU_SOLO 1
 #define MENU_TEAM 2
@@ -83,16 +85,16 @@
 {
     NSLog(@"playGame %@", [menuItem description]);
     // If there is not a sphero attached, hit the error
-    
+    Game *game = [[Game alloc] init];
+    game.teams = (menuItem.tag == MENU_SOLO) ? 1 : 2;
     
     AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appD setGame:game];
+    
     if( [appD robotOnline] == NO ){
         [[CCDirector sharedDirector] pushScene:[SpheroError scene]];
         return;
     }
-    // Reset the game data
-    int teams = (menuItem.tag == MENU_SOLO) ? 1 : 2;
-    [appD setTeams:teams];
     
     [[CCDirector sharedDirector] replaceScene:[RoundBegin scene]];
 }

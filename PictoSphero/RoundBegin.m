@@ -8,6 +8,7 @@
 
 #import "RoundBegin.h"
 #import "AppDelegate.h"
+#import "Game.h"
 
 #import "SpheroDraw.h"
 
@@ -34,14 +35,14 @@
         // Scores labels, table/ball sprites, Round number, Go button
         
         AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
-        
+        Game *game = [appD game];
+
         CCSprite * roundLabel = [CCSprite spriteWithFile:@"round.png"];
         roundLabel.scale = 0.15 * winSize.height / roundLabel.contentSize.height;
         roundLabel.position = ccp(0.5 * winSize.width, winSize.height - (roundLabel.contentSize.height * roundLabel.scale / 2));
         
         [self addChild: roundLabel];
-        
-        CCSprite *roundNumber = [CCSprite spriteWithFile:[NSString stringWithFormat:@"%i.png", appD.round]];
+        CCSprite *roundNumber = [CCSprite spriteWithFile:[NSString stringWithFormat:@"%i.png", game.roundNumber]];
         roundNumber.scale = roundLabel.contentSize.height * roundLabel.scale / roundNumber.contentSize.height;
         roundNumber.position = ccp(0.5 * winSize.width, winSize.height - (roundNumber.contentSize.height * roundNumber.scale / 2) - (roundLabel.contentSize.height * roundLabel.scale) );
         [self addChild:roundNumber];
@@ -54,9 +55,8 @@
         
         [self addChild: redLabel];
         
-        CCLabelTTF *redScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", appD.redScore] fontName:@"Arial" fontSize:24];
-        ccColor3B redColor = {255, 0, 0};
-        redScore.color = redColor;
+        CCLabelTTF *redScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", game.redScore] fontName:@"Arial" fontSize:24];
+        redScore.color = ccc3(255, 0, 0);
         redScore.scale = redLabel.contentSize.height * redLabel.scale / redScore.contentSize.height;
         redScore.position = ccp(0.25 * winSize.width, winSize.height - (redScore.contentSize.height * redScore.scale / 2) - (redLabel.contentSize.height * redLabel.scale) );
         [self addChild:redScore];
@@ -68,9 +68,8 @@
         
         [self addChild:blueLabel];
         
-        CCLabelTTF *blueScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", appD.blueScore] fontName:@"Arial" fontSize:24];
-        ccColor3B blueColor = {0, 0, 255};
-        blueScore.color = blueColor;
+        CCLabelTTF *blueScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", game.blueScore] fontName:@"Arial" fontSize:24];
+        blueScore.color = ccc3(0, 0, 255);
         blueScore.scale = blueLabel.contentSize.height * blueLabel.scale / blueScore.contentSize.height;
         blueScore.position = ccp(0.75 * winSize.width, winSize.height - (blueScore.contentSize.height * blueScore.scale / 2) - (blueLabel.contentSize.height * blueLabel.scale) );
         [self addChild:blueScore];

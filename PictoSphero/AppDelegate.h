@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
 #import "RobotUIKit/RobotUIKit.h"
+#import "Game.h"
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
@@ -22,9 +23,7 @@
     // Sphero
     bool robotOnline_;
     int packetCounter;
-    int round_;
-    int redScore_;
-    int blueScore_;
+    Game *game_;
     CGPoint currentPos;
 }
 
@@ -35,6 +34,7 @@
 @property (nonatomic) int redScore;
 @property (nonatomic) int blueScore;
 @property (nonatomic) int round;
+@property (atomic, retain) Game *game;
 @property (nonatomic, retain) UIWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;

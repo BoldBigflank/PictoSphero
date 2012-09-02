@@ -17,8 +17,7 @@
 
 @implementation AppController
 
-@synthesize window=window_, navController=navController_, director=director_, robotOnline=robotOnline_;
-@synthesize teams, round, redScore, blueScore;
+@synthesize window=window_, navController=navController_, director=director_, robotOnline=robotOnline_, game=game_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

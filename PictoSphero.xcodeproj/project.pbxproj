@@ -173,6 +173,7 @@
 		FA6E581815F2DB6D007A6A54 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E57FD15F2DB6C007A6A54 /* team.png */; };
 		FA6E581B15F2E197007A6A54 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E581915F2E197007A6A54 /* Icon.png */; };
 		FA6E581C15F2E197007A6A54 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E581A15F2E197007A6A54 /* Icon@2x.png */; };
+		FA6E582315F31632007A6A54 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E582215F31630007A6A54 /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -488,6 +489,8 @@
 		FA6E57FD15F2DB6C007A6A54 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
 		FA6E581915F2E197007A6A54 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FA6E581A15F2E197007A6A54 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		FA6E582115F3162F007A6A54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		FA6E582215F31630007A6A54 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -565,6 +568,8 @@
 				FA6E562415F1F61A007A6A54 /* Resources */,
 				FA6E563E15F1F61A007A6A54 /* libs */,
 				FA6E579C15F1F61D007A6A54 /* Supporting Files */,
+				FA6E582115F3162F007A6A54 /* Game.h */,
+				FA6E582215F31630007A6A54 /* Game.m */,
 			);
 			path = PictoSphero;
 			sourceTree = "<group>";
@@ -1197,6 +1202,7 @@
 				FA6E57BD15F29AB9007A6A54 /* Guess.m in Sources */,
 				FA6E57C015F29AE4007A6A54 /* RoundEnd.m in Sources */,
 				FA6E57C315F29AF9007A6A54 /* GameEnd.m in Sources */,
+				FA6E582315F31632007A6A54 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
