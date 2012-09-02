@@ -150,7 +150,7 @@
     AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
     Game *game = [appD game];
 
-    if(guessNumber == 1){ // Correct number
+    if(guessNumber == 0){ // Correct number
         _roundEndLayer.visible = YES;
         if(guesser == GUESS_RED) game.redScore += 1;
         if(guesser == GUESS_BLUE) game.blueScore += 1;
