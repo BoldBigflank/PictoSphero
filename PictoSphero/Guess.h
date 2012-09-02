@@ -11,6 +11,7 @@
 
 @interface Guess : CCLayerColor {
     CCSprite *backgroundColor;
+    CCMenu *guessMenu;
 }
 +(CCScene *) scene;
 -(void)showGuess:(ccColor3B)color;

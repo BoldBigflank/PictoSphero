@@ -176,10 +176,10 @@
 		FA6E586515F3DEC5007A6A54 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E584615F3DEC4007A6A54 /* logo.png */; };
 		FA6E586715F3DEC5007A6A54 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E584815F3DEC5007A6A54 /* blank.png */; };
 		FA6E586915F3F2C8007A6A54 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6E586815F3F2C8007A6A54 /* x.png */; };
-		FA6E589215F4001E007A6A54 /* Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588C15F4001E007A6A54 /* Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg */; };
-		FA6E589315F4001E007A6A54 /* San-Giorgio-Maggiore-At-Dusk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588D15F4001E007A6A54 /* San-Giorgio-Maggiore-At-Dusk.jpg */; };
+		FA6E589215F4001E007A6A54 /* Mona-Lisa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588C15F4001E007A6A54 /* Mona-Lisa.jpg */; };
+		FA6E589315F4001E007A6A54 /* Maggiore-At-Dusk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588D15F4001E007A6A54 /* Maggiore-At-Dusk.jpg */; };
 		FA6E589415F4001E007A6A54 /* Starry-Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588E15F4001E007A6A54 /* Starry-Night.jpg */; };
-		FA6E589515F4001E007A6A54 /* The-Last-Supper-1498.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588F15F4001E007A6A54 /* The-Last-Supper-1498.jpg */; };
+		FA6E589515F4001E007A6A54 /* The-Last-Supper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E588F15F4001E007A6A54 /* The-Last-Supper.jpg */; };
 		FA6E589615F4001E007A6A54 /* The-Long-Cast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E589015F4001E007A6A54 /* The-Long-Cast.jpg */; };
 		FA6E589715F4001E007A6A54 /* The-Scream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6E589115F4001E007A6A54 /* The-Scream.jpg */; };
 /* End PBXBuildFile section */
@@ -501,10 +501,10 @@
 		FA6E584615F3DEC4007A6A54 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		FA6E584815F3DEC5007A6A54 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank.png; path = Resources/blank.png; sourceTree = "<group>"; };
 		FA6E586815F3F2C8007A6A54 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = x.png; path = Resources/x.png; sourceTree = "<group>"; };
-		FA6E588C15F4001E007A6A54 /* Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"; sourceTree = "<group>"; };
-		FA6E588D15F4001E007A6A54 /* San-Giorgio-Maggiore-At-Dusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "San-Giorgio-Maggiore-At-Dusk.jpg"; sourceTree = "<group>"; };
+		FA6E588C15F4001E007A6A54 /* Mona-Lisa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mona-Lisa.jpg"; sourceTree = "<group>"; };
+		FA6E588D15F4001E007A6A54 /* Maggiore-At-Dusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Maggiore-At-Dusk.jpg"; sourceTree = "<group>"; };
 		FA6E588E15F4001E007A6A54 /* Starry-Night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Starry-Night.jpg"; sourceTree = "<group>"; };
-		FA6E588F15F4001E007A6A54 /* The-Last-Supper-1498.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Last-Supper-1498.jpg"; sourceTree = "<group>"; };
+		FA6E588F15F4001E007A6A54 /* The-Last-Supper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Last-Supper.jpg"; sourceTree = "<group>"; };
 		FA6E589015F4001E007A6A54 /* The-Long-Cast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Long-Cast.jpg"; sourceTree = "<group>"; };
 		FA6E589115F4001E007A6A54 /* The-Scream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Scream.jpg"; sourceTree = "<group>"; };
 		FAE4F72615F405940023ED25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
@@ -1013,10 +1013,10 @@
 		FA6E588B15F4001E007A6A54 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
-				FA6E588C15F4001E007A6A54 /* Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg */,
-				FA6E588D15F4001E007A6A54 /* San-Giorgio-Maggiore-At-Dusk.jpg */,
+				FA6E588C15F4001E007A6A54 /* Mona-Lisa.jpg */,
+				FA6E588D15F4001E007A6A54 /* Maggiore-At-Dusk.jpg */,
 				FA6E588E15F4001E007A6A54 /* Starry-Night.jpg */,
-				FA6E588F15F4001E007A6A54 /* The-Last-Supper-1498.jpg */,
+				FA6E588F15F4001E007A6A54 /* The-Last-Supper.jpg */,
 				FA6E589015F4001E007A6A54 /* The-Long-Cast.jpg */,
 				FA6E589115F4001E007A6A54 /* The-Scream.jpg */,
 			);
@@ -1117,10 +1117,10 @@
 				FA6E586515F3DEC5007A6A54 /* logo.png in Resources */,
 				FA6E586715F3DEC5007A6A54 /* blank.png in Resources */,
 				FA6E586915F3F2C8007A6A54 /* x.png in Resources */,
-				FA6E589215F4001E007A6A54 /* Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg in Resources */,
-				FA6E589315F4001E007A6A54 /* San-Giorgio-Maggiore-At-Dusk.jpg in Resources */,
+				FA6E589215F4001E007A6A54 /* Mona-Lisa.jpg in Resources */,
+				FA6E589315F4001E007A6A54 /* Maggiore-At-Dusk.jpg in Resources */,
 				FA6E589415F4001E007A6A54 /* Starry-Night.jpg in Resources */,
-				FA6E589515F4001E007A6A54 /* The-Last-Supper-1498.jpg in Resources */,
+				FA6E589515F4001E007A6A54 /* The-Last-Supper.jpg in Resources */,
 				FA6E589615F4001E007A6A54 /* The-Long-Cast.jpg in Resources */,
 				FA6E589715F4001E007A6A54 /* The-Scream.jpg in Resources */,
 			);

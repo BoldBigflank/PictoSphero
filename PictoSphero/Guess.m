@@ -53,7 +53,7 @@
         backgroundColor.position = ccp(winSize.width/2, winSize.height/2);
         [self addChild:backgroundColor z:10];
         
-        CCMenu * guessMenu = [CCMenu menuWithItems:nil];
+        guessMenu = [CCMenu menuWithItems:nil];
         guessMenu.position = ccp(0,0);
         CCMenuItemImage *guessA = [CCMenuItemImage itemWithNormalImage:@"blanklabel.png"
                                                            selectedImage: @"blanklabel.png"
@@ -110,15 +110,16 @@
 }
 
 -(void)setupChoices:(NSArray *)choices{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    
-    for (NSString *choice in choices){
-        CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:choice fontName:@"Arial" fontSize:48];
-        choiceLabel.color = ccc3(0, 255, 0);
-        choiceLabel.scale = .3 * winSize.height / choiceLabel.contentSize.height;
-        choiceLabel.position = ccp(0.5 * winSize.width, winSize.height - (choiceLabel.contentSize.height * choiceLabel.scale / 2) );
-        [self addChild:choiceLabel];
+    NSMutableArray *availableChoices = [NSMutableArray arrayWithArray:choices];
+    for(CCMenuItem *menuItem in [guessMenu children]){
+        int choiceNumber = arc4random() % availableChoices.count;
         
+        CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:[availableChoices objectAtIndex:choiceNumber] fontName:@"Arial" fontSize:24];
+        choiceLabel.color = ccc3(0, 255, 0);
+        choiceLabel.position = ccp(menuItem.contentSize.width * menuItem.scale / 2, menuItem.contentSize.height * menuItem.scale / 2);
+        [menuItem addChild:choiceLabel z:11];
+        
+        [availableChoices removeObjectAtIndex:choiceNumber];
     }
 }
 
