@@ -43,6 +43,14 @@
 
 -(void)setWinner:(NSString *)winner{
     // red, blue, none
-    
+    if(winner == @""){ // No winner
+        NSLog(@"No winner");
+    }
+    else if(winner==@"red"){
+        NSLog(@"red");
+    }
+    else if(winner==@"blue"){
+        NSLog(@"blue");
+    }
 }
 @end

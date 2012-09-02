@@ -8,11 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Guess.h"
+#import "RoundEnd.h"
 
 @interface SpheroDraw : CCLayerColor {
+    Guess *_guessLayer;
+    RoundEnd * _roundEndLayer;
+    
+    CCMenu * BuzzMenu;
     CCLabelTTF *timerLabel;
     float timer;
+    bool redBuzzed;
+    bool blueBuzzed;
     
 }
+
+-(void)returnWithGuess:(int)guessNumber;
+-(id)initWithGuess:(Guess *)guessLayer roundEnd:(RoundEnd *)roundEndLayer;
 +(CCScene *) scene;
 @end

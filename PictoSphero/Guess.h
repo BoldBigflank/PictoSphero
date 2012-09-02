@@ -10,8 +10,9 @@
 #import "cocos2d.h"
 
 @interface Guess : CCLayerColor {
-    
+    CCSprite *backgroundColor;
 }
 +(CCScene *) scene;
+-(void)showGuess:(ccColor3B)color;
 
 @end

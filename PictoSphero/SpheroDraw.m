@@ -22,25 +22,44 @@
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
-	// 'layer' is an autorelease object.
-	SpheroDraw *layer = [SpheroDraw node];
-	
+    Guess *guessLayer = [Guess node];
+    guessLayer.visible = NO;
+    [scene addChild:guessLayer z:1];
+    
+    RoundEnd *roundEndLayer = [RoundEnd node];
+    roundEndLayer.visible = NO;
+    [scene addChild:roundEndLayer z:1];
+    
+    // 'layer' is an autorelease object.
+	SpheroDraw *layer = [[SpheroDraw alloc] initWithGuess:guessLayer roundEnd:roundEndLayer];
+
 	// add layer as a child to scene
 	[scene addChild: layer];
 	
-    Guess *guessLayer = [Guess node];
-    [scene addChild:guessLayer];
-    
 	// return the scene
 	return scene;
 }
--(id) init
+
+
+-(id) initWithGuess:(Guess *)guessLayer roundEnd:(RoundEnd *)roundEndLayer
 {
+    
     if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
+        self.tag = 40;
+        redBuzzed = FALSE;
+        blueBuzzed = FALSE;
+        
+        _guessLayer = guessLayer;
+        _roundEndLayer = roundEndLayer;
+        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
         Game *game = [appD game];
+        
+        // Game newRound
+        // Guess loadEntries
+        
         
         timer = (float)game.timer;
         
@@ -66,26 +85,30 @@
         [self addChild:timerLabel];
         
         // Red and blue buttons
-        CCMenu * playMenu = [CCMenu menuWithItems:nil];
-        playMenu.position = ccp(0,0);
-        CCMenuItemImage *playSolo = [CCMenuItemImage itemWithNormalImage:@"buzz.png"
+        BuzzMenu = [CCMenu menuWithItems:nil];
+        BuzzMenu.position = ccp(0,0);
+        CCMenuItemImage *buzzRed = [CCMenuItemImage itemWithNormalImage:@"buzz.png"
                                                            selectedImage: @"buzz.png"
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
-        playSolo.scale = 0.15 * winSize.height / playSolo.contentSize.height;
-        playSolo.position = ccp(0.25 * winSize.width, 0.15 * winSize.height);
-        playSolo.tag = GUESS_RED;
-		[playMenu addChild:playSolo];
-        CCMenuItemImage *playTeam = [CCMenuItemImage itemWithNormalImage:@"buzz.png"
+        buzzRed.scale = 0.7 * winSize.height / buzzRed.contentSize.width;
+        buzzRed.position = ccp(0.25 * winSize.width, 0.45 * winSize.height);
+        buzzRed.color = ccc3(255, 0, 0);
+        buzzRed.rotation = 90;
+        buzzRed.tag = GUESS_RED;
+		[BuzzMenu addChild:buzzRed];
+        CCMenuItemImage *buzzBlue = [CCMenuItemImage itemWithNormalImage:@"buzz.png"
                                                            selectedImage: @"buzz.png"
                                                                   target:self
                                                                 selector:@selector(makeGuess:)];
-        playTeam.position = ccp(0.75 * winSize.width, 0.15 * winSize.height);
-        playTeam.scale = 0.15 * winSize.height / playTeam.contentSize.height;
-        playTeam.tag = GUESS_BLUE;
-		[playMenu addChild:playTeam];
+        buzzBlue.position = ccp(0.75 * winSize.width, 0.45 * winSize.height);
+        buzzBlue.scale = 0.7 * winSize.height / buzzBlue.contentSize.width;
+        buzzBlue.color = ccc3(0, 0, 255);
+        buzzBlue.rotation = -90;
+        buzzBlue.tag = GUESS_BLUE;
+		[BuzzMenu addChild:buzzBlue];
         
-        [self addChild:playMenu z:10];
+        [self addChild:BuzzMenu z:9];
         
     }
     return self;
@@ -101,22 +124,44 @@
 
 -(void)makeGuess:(CCMenuItem*)menuItem
 {
-    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
-    Game *game = [appD game];
-    ccColor4B guessColor = (menuItem.tag == GUESS_RED) ? ccc4(255, 0, 0, 255) : ccc4(0, 0, 255, 255);
-    game.guessColor = guessColor;
+    if(menuItem.tag == GUESS_RED && redBuzzed) return;
+    if(menuItem.tag == GUESS_BLUE && blueBuzzed) return;
     
-    [[CCDirector sharedDirector] pushScene:[Guess scene]];
+//    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+//    Game *game = [appD game];
+    
+    BuzzMenu.isTouchEnabled = FALSE;
+    ccColor3B guessColor = (menuItem.tag == GUESS_RED) ? ccc3(255, 0, 0) : ccc3(0, 0, 255);
+
+    if(menuItem.tag == GUESS_RED) redBuzzed = true;
+    if(menuItem.tag == GUESS_BLUE) blueBuzzed = true;
+    
+    [_guessLayer showGuess:guessColor];
+    [self unschedule:@selector(tick2:)];
+    _guessLayer.visible = YES;
+    _guessLayer.scale = 0;
+    [_guessLayer runAction:[CCScaleTo actionWithDuration:0.5 scale:1.0]];
+    //[[CCDirector sharedDirector] pushScene:[Guess scene]];
+}
+
+-(void)returnWithGuess:(int)guessNumber{
+    NSLog(@"returnWithGuess %i", guessNumber);
+    [self schedule: @selector(tick2:) interval:0.1];
+    BuzzMenu.isTouchEnabled = TRUE;
+//    _guessLayer.isTouchEnabled = FALSE;
+    _guessLayer.visible = FALSE;
 }
 
 -(void) tick2: (ccTime) dt
 {
     timer -= dt;
     timerLabel.string = [NSString stringWithFormat:@"%i", (int)timer];
-    if(timer <= 0){
+    if(timer < 1){
         NSLog(@"Time's up!");
         [self unschedule:@selector(tick2:)];
-        [[CCDirector sharedDirector] replaceScene:[RoundEnd scene]];
+        [_roundEndLayer setWinner:@""];
+        _roundEndLayer.visible = YES;
+        //[[CCDirector sharedDirector] replaceScene:[RoundEnd scene]];
     }
     
 }
