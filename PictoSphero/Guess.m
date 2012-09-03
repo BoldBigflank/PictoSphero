@@ -116,7 +116,7 @@
         NSString *prettyString = [[availableChoices objectAtIndex:choiceNumber] stringByReplacingOccurrencesOfString:@"-" withString:@" " ];
         prettyString = [prettyString stringByReplacingOccurrencesOfString:@".jpg" withString:@""];
         CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:prettyString fontName:@"Arial" fontSize:24];
-        choiceLabel.color = ccc3(0, 255, 0);
+        choiceLabel.color = ccc3(0, 0, 0);
         choiceLabel.position = ccp(150.0f, 150.0f);
         
         [menuItem addChild:choiceLabel z:11];

@@ -61,7 +61,7 @@
         starSplat.startColorVar = startColorVar;
         ccColor4F endColor = {1.0f, 1.0f, 1.0f, 1.0f};
         starSplat.endColor = endColor;
-        ccColor4F endColorVar = {0.0f, 0.0f, 0.0f, 0.0f};
+        ccColor4F endColorVar = {0.5f, 0.5f, 0.5f, 0.5f};
         starSplat.endColorVar = endColorVar;
         starSplat.autoRemoveOnFinish = YES;
         [self addChild:starSplat];
@@ -76,12 +76,17 @@
         roundLabel.position = ccp(0.5 * winSize.width, winSize.height - (roundLabel.contentSize.height * roundLabel.scale / 2));
         
         [self addChild: roundLabel];
-        CCSprite *roundNumber = [CCSprite spriteWithFile:[NSString stringWithFormat:@"%i.png", game.roundNumber]];
+        
+//        CCSprite *roundNumber = [CCSprite spriteWithFile:[NSString stringWithFormat:@"%i.png", game.roundNumber]];
+//        roundNumber.scale = roundLabel.contentSize.height * roundLabel.scale / roundNumber.contentSize.height;
+//        roundNumber.position = ccp(0.5 * winSize.width, winSize.height - (roundNumber.contentSize.height * roundNumber.scale / 2) - (roundLabel.contentSize.height * roundLabel.scale) );
+//        [self addChild:roundNumber];
+        
+        CCLabelTTF *roundNumber = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%i", game.roundNumber] fontName:@"Arial" fontSize:24];
+        roundNumber.color = ccc3(128, 128, 255);
         roundNumber.scale = roundLabel.contentSize.height * roundLabel.scale / roundNumber.contentSize.height;
         roundNumber.position = ccp(0.5 * winSize.width, winSize.height - (roundNumber.contentSize.height * roundNumber.scale / 2) - (roundLabel.contentSize.height * roundLabel.scale) );
         [self addChild:roundNumber];
-        
-        
 
         CCSprite * redLabel = [CCSprite spriteWithFile:@"red-large.png"];
         redLabel.scale = 0.15 * winSize.height / redLabel.contentSize.height;

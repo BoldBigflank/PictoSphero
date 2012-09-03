@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA00A8B615F480DD0032777B /* American-Gothic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8AD15F480DD0032777B /* American-Gothic.jpg */; };
+		FA00A8B715F480DD0032777B /* Whistler's-Mother.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8AE15F480DD0032777B /* Whistler's-Mother.jpeg */; };
+		FA00A8B815F480DD0032777B /* Luncheon-of-the-Boating-Party.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8AF15F480DD0032777B /* Luncheon-of-the-Boating-Party.jpg */; };
+		FA00A8B915F480DD0032777B /* Girl-with-a-Pearl-Earring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B015F480DD0032777B /* Girl-with-a-Pearl-Earring.jpg */; };
+		FA00A8BA15F480DD0032777B /* Cafe-Terrace-at-Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B115F480DD0032777B /* Cafe-Terrace-at-Night.jpg */; };
+		FA00A8BB15F480DD0032777B /* Corner-of-the-Garden-at-Montgeron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B215F480DD0032777B /* Corner-of-the-Garden-at-Montgeron.jpg */; };
+		FA00A8BC15F480DD0032777B /* The-Dream.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B315F480DD0032777B /* The-Dream.jpeg */; };
+		FA00A8BD15F480DD0032777B /* The-Persistence-of-Memory.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B415F480DD0032777B /* The-Persistence-of-Memory.jpg */; };
+		FA00A8BE15F480DD0032777B /* From-The-Lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B515F480DD0032777B /* From-The-Lake.jpg */; };
 		FA0AF01715F46EE400797E11 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01615F46EE400797E11 /* star.png */; };
 		FA0AF01915F4708300797E11 /* yellowstar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01815F4708300797E11 /* yellowstar.png */; };
 		FA0AF01B15F474A600797E11 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01A15F474A600797E11 /* question.png */; };
@@ -190,6 +199,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA00A8AD15F480DD0032777B /* American-Gothic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "American-Gothic.jpg"; sourceTree = "<group>"; };
+		FA00A8AE15F480DD0032777B /* Whistler's-Mother.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Whistler's-Mother.jpeg"; sourceTree = "<group>"; };
+		FA00A8AF15F480DD0032777B /* Luncheon-of-the-Boating-Party.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Luncheon-of-the-Boating-Party.jpg"; sourceTree = "<group>"; };
+		FA00A8B015F480DD0032777B /* Girl-with-a-Pearl-Earring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Girl-with-a-Pearl-Earring.jpg"; sourceTree = "<group>"; };
+		FA00A8B115F480DD0032777B /* Cafe-Terrace-at-Night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cafe-Terrace-at-Night.jpg"; sourceTree = "<group>"; };
+		FA00A8B215F480DD0032777B /* Corner-of-the-Garden-at-Montgeron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Corner-of-the-Garden-at-Montgeron.jpg"; sourceTree = "<group>"; };
+		FA00A8B315F480DD0032777B /* The-Dream.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Dream.jpeg"; sourceTree = "<group>"; };
+		FA00A8B415F480DD0032777B /* The-Persistence-of-Memory.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Persistence-of-Memory.jpg"; sourceTree = "<group>"; };
+		FA00A8B515F480DD0032777B /* From-The-Lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "From-The-Lake.jpg"; sourceTree = "<group>"; };
 		FA0AF01615F46EE400797E11 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/star.png; sourceTree = "<group>"; };
 		FA0AF01815F4708300797E11 /* yellowstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowstar.png; path = Resources/yellowstar.png; sourceTree = "<group>"; };
 		FA0AF01A15F474A600797E11 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = question.png; path = Resources/question.png; sourceTree = "<group>"; };
@@ -1029,6 +1047,15 @@
 			isa = PBXGroup;
 			children = (
 				FA6E588C15F4001E007A6A54 /* Mona-Lisa.jpg */,
+				FA00A8AD15F480DD0032777B /* American-Gothic.jpg */,
+				FA00A8AE15F480DD0032777B /* Whistler's-Mother.jpeg */,
+				FA00A8AF15F480DD0032777B /* Luncheon-of-the-Boating-Party.jpg */,
+				FA00A8B015F480DD0032777B /* Girl-with-a-Pearl-Earring.jpg */,
+				FA00A8B115F480DD0032777B /* Cafe-Terrace-at-Night.jpg */,
+				FA00A8B215F480DD0032777B /* Corner-of-the-Garden-at-Montgeron.jpg */,
+				FA00A8B315F480DD0032777B /* The-Dream.jpeg */,
+				FA00A8B415F480DD0032777B /* The-Persistence-of-Memory.jpg */,
+				FA00A8B515F480DD0032777B /* From-The-Lake.jpg */,
 				FA6E588D15F4001E007A6A54 /* Maggiore-At-Dusk.jpg */,
 				FA6E588E15F4001E007A6A54 /* Starry-Night.jpg */,
 				FA6E588F15F4001E007A6A54 /* The-Last-Supper.jpg */,
@@ -1143,6 +1170,15 @@
 				FA0AF01B15F474A600797E11 /* question.png in Resources */,
 				FA0AF01E15F4763F00797E11 /* buzz-blue.png in Resources */,
 				FA0AF01F15F4763F00797E11 /* buzz-red.png in Resources */,
+				FA00A8B615F480DD0032777B /* American-Gothic.jpg in Resources */,
+				FA00A8B715F480DD0032777B /* Whistler's-Mother.jpeg in Resources */,
+				FA00A8B815F480DD0032777B /* Luncheon-of-the-Boating-Party.jpg in Resources */,
+				FA00A8B915F480DD0032777B /* Girl-with-a-Pearl-Earring.jpg in Resources */,
+				FA00A8BA15F480DD0032777B /* Cafe-Terrace-at-Night.jpg in Resources */,
+				FA00A8BB15F480DD0032777B /* Corner-of-the-Garden-at-Montgeron.jpg in Resources */,
+				FA00A8BC15F480DD0032777B /* The-Dream.jpeg in Resources */,
+				FA00A8BD15F480DD0032777B /* The-Persistence-of-Memory.jpg in Resources */,
+				FA00A8BE15F480DD0032777B /* From-The-Lake.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -285,7 +285,7 @@
         float r = (float)data[index]/255;
         float g = (float)data[index+1]/255;
         float b = (float)data[index+2]/255;
-        float a = (float)data[index+3]/255;
+//        float a = (float)data[index+3]/255;
         //NSLog(@"(%f, %f) %f, %f, %f, %f", x, y, r, g, b, a);
         [RKRGBLEDOutputCommand sendCommandWithRed:r green:g blue:b];
 //        imageXSlider.value = (float)(x/CGImageGetWidth([game cgImage]));
@@ -312,7 +312,6 @@
     targetPos = point;
     
     CGPoint vector = ccpSub(targetPos, currentPos);
-    double distance = sqrt( vector.x*vector.x + vector.y*vector.y );
     if(sqrt( vector.x*vector.x + vector.y*vector.y ) < 15.0){
         //NSLog(@"DONE!");
         if(self.keepRolling){

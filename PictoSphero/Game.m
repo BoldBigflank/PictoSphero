@@ -19,7 +19,7 @@
         self.blueScore = 0;
         self.redScore = 0;
         self.timer = 30;
-        self.maxScore = 5;
+        self.maxScore = 7;
     }
     return self;
 }
