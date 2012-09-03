@@ -16,6 +16,7 @@
 		FA00A8BC15F480DD0032777B /* The-Dream.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B315F480DD0032777B /* The-Dream.jpeg */; };
 		FA00A8BD15F480DD0032777B /* The-Persistence-of-Memory.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B415F480DD0032777B /* The-Persistence-of-Memory.jpg */; };
 		FA00A8BE15F480DD0032777B /* From-The-Lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8B515F480DD0032777B /* From-The-Lake.jpg */; };
+		FA00A8C115F485640032777B /* Jaazz.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA00A8C015F485640032777B /* Jaazz.wav */; };
 		FA0AF01715F46EE400797E11 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01615F46EE400797E11 /* star.png */; };
 		FA0AF01915F4708300797E11 /* yellowstar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01815F4708300797E11 /* yellowstar.png */; };
 		FA0AF01B15F474A600797E11 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01A15F474A600797E11 /* question.png */; };
@@ -208,6 +209,7 @@
 		FA00A8B315F480DD0032777B /* The-Dream.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Dream.jpeg"; sourceTree = "<group>"; };
 		FA00A8B415F480DD0032777B /* The-Persistence-of-Memory.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Persistence-of-Memory.jpg"; sourceTree = "<group>"; };
 		FA00A8B515F480DD0032777B /* From-The-Lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "From-The-Lake.jpg"; sourceTree = "<group>"; };
+		FA00A8C015F485640032777B /* Jaazz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Jaazz.wav; path = Resources/Jaazz.wav; sourceTree = "<group>"; };
 		FA0AF01615F46EE400797E11 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/star.png; sourceTree = "<group>"; };
 		FA0AF01815F4708300797E11 /* yellowstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowstar.png; path = Resources/yellowstar.png; sourceTree = "<group>"; };
 		FA0AF01A15F474A600797E11 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = question.png; path = Resources/question.png; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 		FA6E562415F1F61A007A6A54 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA00A8C015F485640032777B /* Jaazz.wav */,
 				FA0AF01C15F4763F00797E11 /* buzz-blue.png */,
 				FA0AF01D15F4763F00797E11 /* buzz-red.png */,
 				FA0AF01A15F474A600797E11 /* question.png */,
@@ -1179,6 +1182,7 @@
 				FA00A8BC15F480DD0032777B /* The-Dream.jpeg in Resources */,
 				FA00A8BD15F480DD0032777B /* The-Persistence-of-Memory.jpg in Resources */,
 				FA00A8BE15F480DD0032777B /* From-The-Lake.jpg in Resources */,
+				FA00A8C115F485640032777B /* Jaazz.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

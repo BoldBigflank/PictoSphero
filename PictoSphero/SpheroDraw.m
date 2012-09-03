@@ -12,6 +12,8 @@
 
 #import "Guess.h"
 #import "RoundEnd.h"
+#import "SimpleAudioEngine.h"
+
 
 #define GUESS_RED 1
 #define GUESS_BLUE 2
@@ -147,6 +149,9 @@
         [self addChild:BuzzMenu z:9];
         
     }
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Jaazz.wav" loop:YES];
+    
+    
     return self;
 }
 
