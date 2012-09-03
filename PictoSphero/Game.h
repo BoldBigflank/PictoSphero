@@ -18,6 +18,8 @@
     int timer_;
     int maxScore_;
     ccColor4B guessColor_;
+    CGImageRef cgImage_;
+    CFDataRef bitmapData_;
     
     NSString * currentImage_;
     NSArray * choices_;
@@ -31,6 +33,9 @@
 @property (nonatomic) int teams;
 @property (nonatomic) int timer;
 @property (nonatomic) int maxScore;
+@property (nonatomic) CGImageRef cgImage;
+@property (nonatomic) CFDataRef bitmapData;
+
 @property (nonatomic) ccColor4B guessColor;
 @property (nonatomic, retain) NSString *currentImage;
 @property (nonatomic, retain) NSArray *choices;

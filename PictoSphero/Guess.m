@@ -113,9 +113,12 @@
     for(CCMenuItem *menuItem in [guessMenu children]){
         int choiceNumber = arc4random() % availableChoices.count;
         menuItem.tag = [choices indexOfObject:[availableChoices objectAtIndex:choiceNumber]];
-        CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:[availableChoices objectAtIndex:choiceNumber] fontName:@"Arial" fontSize:24];
+        NSString *prettyString = [[availableChoices objectAtIndex:choiceNumber] stringByReplacingOccurrencesOfString:@"-" withString:@" " ];
+        prettyString = [prettyString stringByReplacingOccurrencesOfString:@".jpg" withString:@""];
+        CCLabelTTF *choiceLabel = [CCLabelTTF labelWithString:prettyString fontName:@"Arial" fontSize:24];
         choiceLabel.color = ccc3(0, 255, 0);
-        choiceLabel.position = ccp(menuItem.contentSize.width * menuItem.scale / 2, menuItem.contentSize.height * menuItem.scale / 2);
+        choiceLabel.position = ccp(150.0f, 150.0f);
+        
         [menuItem addChild:choiceLabel z:11];
         [availableChoices removeObjectAtIndex:choiceNumber];
     }

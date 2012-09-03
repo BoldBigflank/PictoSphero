@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0AF01715F46EE400797E11 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01615F46EE400797E11 /* star.png */; };
+		FA0AF01915F4708300797E11 /* yellowstar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01815F4708300797E11 /* yellowstar.png */; };
+		FA0AF01B15F474A600797E11 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01A15F474A600797E11 /* question.png */; };
+		FA0AF01E15F4763F00797E11 /* buzz-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01C15F4763F00797E11 /* buzz-blue.png */; };
+		FA0AF01F15F4763F00797E11 /* buzz-red.png in Resources */ = {isa = PBXBuildFile; fileRef = FA0AF01D15F4763F00797E11 /* buzz-red.png */; };
 		FA6E561215F1F619007A6A54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E561115F1F619007A6A54 /* QuartzCore.framework */; };
 		FA6E561415F1F619007A6A54 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E561315F1F619007A6A54 /* OpenGLES.framework */; };
 		FA6E561615F1F619007A6A54 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6E561515F1F619007A6A54 /* OpenAL.framework */; };
@@ -185,6 +190,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0AF01615F46EE400797E11 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = Resources/star.png; sourceTree = "<group>"; };
+		FA0AF01815F4708300797E11 /* yellowstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowstar.png; path = Resources/yellowstar.png; sourceTree = "<group>"; };
+		FA0AF01A15F474A600797E11 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = question.png; path = Resources/question.png; sourceTree = "<group>"; };
+		FA0AF01C15F4763F00797E11 /* buzz-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "buzz-blue.png"; path = "Resources/buzz-blue.png"; sourceTree = "<group>"; };
+		FA0AF01D15F4763F00797E11 /* buzz-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "buzz-red.png"; path = "Resources/buzz-red.png"; sourceTree = "<group>"; };
 		FA6E560D15F1F619007A6A54 /* PictoSphero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictoSphero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6E561115F1F619007A6A54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FA6E561315F1F619007A6A54 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -582,11 +592,11 @@
 				FA6E57A415F1F61D007A6A54 /* HelloWorldLayer.m */,
 				FA6E57A615F1F61D007A6A54 /* IntroLayer.h */,
 				FA6E57A715F1F61D007A6A54 /* IntroLayer.m */,
+				FA6E582115F3162F007A6A54 /* Game.h */,
+				FA6E582215F31630007A6A54 /* Game.m */,
 				FA6E562415F1F61A007A6A54 /* Resources */,
 				FA6E563E15F1F61A007A6A54 /* libs */,
 				FA6E579C15F1F61D007A6A54 /* Supporting Files */,
-				FA6E582115F3162F007A6A54 /* Game.h */,
-				FA6E582215F31630007A6A54 /* Game.m */,
 			);
 			path = PictoSphero;
 			sourceTree = "<group>";
@@ -594,6 +604,11 @@
 		FA6E562415F1F61A007A6A54 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA0AF01C15F4763F00797E11 /* buzz-blue.png */,
+				FA0AF01D15F4763F00797E11 /* buzz-red.png */,
+				FA0AF01A15F474A600797E11 /* question.png */,
+				FA0AF01815F4708300797E11 /* yellowstar.png */,
+				FA0AF01615F46EE400797E11 /* star.png */,
 				FA6E588B15F4001E007A6A54 /* pictures */,
 				FA6E586815F3F2C8007A6A54 /* x.png */,
 				FAE4F72615F405940023ED25 /* Info.plist */,
@@ -1123,6 +1138,11 @@
 				FA6E589515F4001E007A6A54 /* The-Last-Supper.jpg in Resources */,
 				FA6E589615F4001E007A6A54 /* The-Long-Cast.jpg in Resources */,
 				FA6E589715F4001E007A6A54 /* The-Scream.jpg in Resources */,
+				FA0AF01715F46EE400797E11 /* star.png in Resources */,
+				FA0AF01915F4708300797E11 /* yellowstar.png in Resources */,
+				FA0AF01B15F474A600797E11 /* question.png in Resources */,
+				FA0AF01E15F4763F00797E11 /* buzz-blue.png in Resources */,
+				FA0AF01F15F4763F00797E11 /* buzz-red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

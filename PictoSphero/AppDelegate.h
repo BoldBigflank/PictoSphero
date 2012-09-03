@@ -16,20 +16,28 @@
 	UIWindow *window_;
 	UINavigationController *navController_;
     RUICalibrateGestureHandler *calibrateHandler;
-    
+
 
 	CCDirectorIOS	*director_;							// weak ref
 
     // Sphero
     bool robotOnline_;
+    bool keepRolling_;
     int packetCounter;
     Game *game_;
     CGPoint currentPos;
+    CGPoint targetPos;
+    // Sphero Locator
+    CFDataRef bitmapData;
+    
 }
 
 -(void)setupRobotConnection;
+-(void)showSpheroTail:(bool)showTail;
+-(void)moveToPoint:(CGPoint)point;
 
 @property (nonatomic) bool robotOnline;
+@property (nonatomic) bool keepRolling;
 @property (nonatomic) int teams;
 @property (nonatomic) int redScore;
 @property (nonatomic) int blueScore;

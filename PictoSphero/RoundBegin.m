@@ -30,9 +30,43 @@
 }
 -(id) init
 {
-    if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
+    if( (self=[super initWithColor:ccc4(13,217,133,255)] )) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         // Scores labels, table/ball sprites, Round number, Go button
+        CCParticleSystemQuad *starSplat = [[CCParticleRain alloc] initWithTotalParticles:300];
+        starSplat.texture = [[CCTextureCache sharedTextureCache] addImage:@"yellowstar.png"];
+        starSplat.duration = 1;
+        starSplat.emissionRate = 3200;
+        starSplat.life = 8;
+        starSplat.lifeVar = 0;
+        starSplat.startSize = 20;
+        starSplat.startSizeVar = 1;
+        starSplat.endSize = 10;
+        starSplat.endSizeVar = 10;
+        starSplat.angle = 180;
+        starSplat.angleVar = 180;
+        starSplat.rotation = 0;
+        starSplat.gravity = ccp(0, 5);
+        starSplat.speed = winSize.width/8;
+        starSplat.speedVar = 15;
+        starSplat.radialAccel = 5;
+        starSplat.radialAccelVar = 15;
+        starSplat.tangentialAccel = 0;
+        starSplat.tangentialAccelVar = 0;
+        starSplat.position = ccp(winSize.width/2, winSize.height/2);
+        starSplat.posVar = ccp(winSize.width/2, winSize.height/2);
+        ccColor4F startColor = {1.0f, 1.0f, 1.0f, 1.0f};
+        starSplat.startColor = startColor;
+        ccColor4F startColorVar = {0.2f, 0.25f, 0.2f, 0.29f};
+        starSplat.startColorVar = startColorVar;
+        ccColor4F endColor = {1.0f, 1.0f, 1.0f, 1.0f};
+        starSplat.endColor = endColor;
+        ccColor4F endColorVar = {0.0f, 0.0f, 0.0f, 0.0f};
+        starSplat.endColorVar = endColorVar;
+        starSplat.autoRemoveOnFinish = YES;
+        [self addChild:starSplat];
+        
+        
         
         AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
         Game *game = [appD game];
@@ -84,6 +118,11 @@
         sphero.position = ccp(floor.position.x, floor.position.y + (floor.contentSize.height * floor.scale / 2));
         [self addChild:sphero];
         
+        CCLabelTTF *instructionLabel = [CCLabelTTF labelWithString:@"Place the Sphero in the middle of the floor with the tail pointing 'down'." fontName:@"Arial" fontSize:24];
+        instructionLabel.color = ccc3(255,255,0 );
+        instructionLabel.position = ccp(0.5 * winSize.width, .6 * winSize.height );
+        [self addChild:instructionLabel];
+        
         CCMenu * playMenu = [CCMenu menuWithItems:nil];
         playMenu.position = ccp(0,0);
         CCMenuItemImage *okButton = [CCMenuItemImage itemWithNormalImage:@"ok.png"
@@ -112,5 +151,9 @@
     CCAction *dropBall = [CCMoveTo actionWithDuration:1 position:ccp(floor.position.x, floor.position.y - (0.1*floor.contentSize.height) )];
     
     [sphero runAction:dropBall];
+    AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+    [appD setKeepRolling:NO];
+    [appD moveToPoint:ccp(0,0)];
+    [appD showSpheroTail:YES];
 }
 @end

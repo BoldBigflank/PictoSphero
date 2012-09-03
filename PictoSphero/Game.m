@@ -11,15 +11,15 @@
 @implementation Game
 
 @synthesize currentImage=currentImage_, choices=choices_;
-@synthesize redScore=redScore_, blueScore=blueScore_, roundNumber=roundNumber_, teams=teams_, timer=timer_, guessColor=guessColor_, maxScore=maxScore_;
+@synthesize redScore=redScore_, blueScore=blueScore_, roundNumber=roundNumber_, teams=teams_, timer=timer_, guessColor=guessColor_, maxScore=maxScore_, cgImage=cgImage_, bitmapData=bitmapData_;
 
 -(id)init{
     if((self = [super init])){
         self.roundNumber = 1;
         self.blueScore = 0;
         self.redScore = 0;
-        self.timer = 10;
-        self.maxScore = 7;
+        self.timer = 30;
+        self.maxScore = 5;
     }
     return self;
 }
@@ -29,11 +29,14 @@
     // Pick a picture from the collection
     self.currentImage = @"Default.png";
     NSArray *files = [[NSBundle mainBundle] pathsForResourcesOfType:@"jpg" inDirectory:nil];
-    
 
     if(files.count > 0){
         int chosenPic = arc4random() % files.count;
         self.currentImage = [[files objectAtIndex:chosenPic] lastPathComponent];
+        UIImage *image = [UIImage imageNamed:self.currentImage];
+        self.cgImage = [image CGImage];
+        CGDataProviderRef provider = CGImageGetDataProvider(self.cgImage);
+        self.bitmapData = CGDataProviderCopyData(provider);
         
         NSMutableArray *choices = [[NSMutableArray alloc] initWithObjects:[[files objectAtIndex:chosenPic] lastPathComponent], nil];
         while ([choices count] < 4){

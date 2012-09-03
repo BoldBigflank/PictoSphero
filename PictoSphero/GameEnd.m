@@ -7,6 +7,10 @@
 //
 
 #import "GameEnd.h"
+#import "AppDelegate.h"
+#import "Game.h"
+
+#import "Title.h"
 
 
 @implementation GameEnd
@@ -28,16 +32,43 @@
 {
     if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        NSString *className = [NSString stringWithFormat:@"Class %@", [[self class] description]];
-        CCLabelTTF *label = [CCLabelTTF labelWithString:className fontName:@"Marker Felt" fontSize:64];
         
-		// position the label on the center of the screen
-		label.position =  ccp( winSize.width /2 , winSize.height/2 );
+        AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
+        Game *game = [appD game];
+        NSString *teamString = (game.redScore > game.blueScore) ? @"red-large.png" : @"blue-large.png";
+        NSString *winString = (game.redScore > game.blueScore) ? @"red-wins.png" : @"blue-wins.png";
+        
+        CCSprite *logoSprite = [CCSprite spriteWithFile:teamString];
+        logoSprite.scale = 0.35 * winSize.height / logoSprite.contentSize.height;
+        logoSprite.position = ccp(winSize.width/2, (.75* winSize.height) );
+        [self addChild: logoSprite];
+        
+        CCSprite *winSprite = [CCSprite spriteWithFile:winString];
+        winSprite.scale = 0.35 * winSize.height / winSprite.contentSize.height;
+        winSprite.position = ccp(winSize.width/2, (0.4 * winSize.height) );
+        [self addChild: winSprite];
+        
+        CCMenu * playMenu = [CCMenu menuWithItems:nil];
+        playMenu.position = ccp(0,0);
+        CCMenuItemImage *okButton = [CCMenuItemImage itemWithNormalImage:@"ok.png"
+                                                           selectedImage: @"ok.png"
+                                                                  target:self
+                                                                selector:@selector(okPressed:)];
+        okButton.scale = 0.15 * winSize.height / okButton.contentSize.height;
+        okButton.position = ccp(0.5 * winSize.width, 0.15 * winSize.height);
 		
-		// add the label as a child to this Layer
-		[self addChild: label];
-		
+        [playMenu addChild:okButton];
+        [self addChild:playMenu];
+        
     }
     return self;
 }
+
+-(void)okPressed:(CCMenuItem*)menuItem
+{
+    NSLog(@"okPressed %@", [menuItem description]);
+    [[CCDirector sharedDirector] replaceScene:[Title scene]];
+    
+}
+
 @end

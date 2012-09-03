@@ -33,15 +33,7 @@
 {
     if( (self=[super initWithColor:ccc4(128,128,128,128)] )) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        NSString *className = [NSString stringWithFormat:@"Class %@", [[self class] description]];
-        CCLabelTTF *label = [CCLabelTTF labelWithString:className fontName:@"Marker Felt" fontSize:64];
         
-		// position the label on the center of the screen
-		label.position =  ccp( winSize.width /2 , winSize.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
-
         // Next button
         
         CCMenu * playMenu = [CCMenu menuWithItems:nil];
@@ -88,6 +80,8 @@
     NSLog(@"okPressed %@", [menuItem description]);
     AppController *appD = (AppController *)[[UIApplication sharedApplication] delegate];
     Game *game = [appD game];
+    [game setRoundNumber:game.roundNumber+1];
+    
     if(game.redScore >= game.maxScore || game.blueScore >= game.maxScore){
         [[CCDirector sharedDirector] replaceScene:[GameEnd scene]];
     }

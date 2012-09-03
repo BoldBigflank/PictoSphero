@@ -17,7 +17,7 @@
 
 @implementation AppController
 
-@synthesize window=window_, navController=navController_, director=director_, robotOnline=robotOnline_, game=game_;
+@synthesize window=window_, navController=navController_, director=director_, robotOnline=robotOnline_, game=game_, keepRolling=keepRolling_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -243,7 +243,8 @@
         RKDeviceSensorsData *sensorsData = [sensorsAsyncData.dataFrames lastObject];
         RKLocatorData *locatorData = sensorsData.locatorData;
         
-        currentPos = ccp(locatorData.position.x, locatorData.position.y);
+        Game *game = [self game];
+        
         // Use destination point/heading to determine whether to stop
         
         // Print Locator Values
@@ -251,12 +252,89 @@
 //        self.yValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.position.y, @"cm"];
 //        self.xVelocityValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.velocity.x, @"cm/s"];
 //        self.yVelocityValueLabel.text = [NSString stringWithFormat:@"%.02f  %@", locatorData.velocity.y, @"cm/s"];
+        
+        // ****** DRAW DATA ********
+        if([game cgImage] == NULL) return;
+        //NSLog(@"Data obtained %f %f", locatorData.position.x, locatorData.position.y);
+        
+        // If the direction is going away from the target, stop and relocate
+        // locatorData.position - targetPos > currentPos - targetPos
+        CGPoint newPosition = ccp(locatorData.position.x, locatorData.position.y);
+        CGPoint newVector = ccpSub(newPosition, targetPos);
+        CGPoint oldVector = ccpSub(currentPos, targetPos);
+        if(sqrt(newVector.x*newVector.x + newVector.y*newVector.y) > sqrt(oldVector.x*oldVector.x+oldVector.y*oldVector.y) ){
+            [RKRollCommand sendStop];
+            //
+        }
+        if (locatorData.velocity.x < 0.1 && locatorData.velocity.y < 0.1){
+            //NSLog(@"RECALCULATING");
+            [self moveToPoint:targetPos];
+        }
+        
+        if(locatorData.position.x == currentPos.x && locatorData.position.y == currentPos.y) return;
+        currentPos = ccp(locatorData.position.x, locatorData.position.y);
+        const UInt8 *data = CFDataGetBytePtr([game bitmapData]);
+        float x = (integer_t)locatorData.position.x % CGImageGetWidth([game cgImage]);
+        
+        float y = (CGImageGetHeight([game cgImage]) - (integer_t)locatorData.position.y % CGImageGetHeight([game cgImage]));
+        int width = CGImageGetWidth([game cgImage]);
+        int BytesPerPixel = CGImageGetBytesPerRow([game cgImage]) / CGImageGetWidth([game cgImage]);
+        
+        unsigned int index = (BytesPerPixel * (y * width + x));
+        
+        float r = (float)data[index]/255;
+        float g = (float)data[index+1]/255;
+        float b = (float)data[index+2]/255;
+        float a = (float)data[index+3]/255;
+        //NSLog(@"(%f, %f) %f, %f, %f, %f", x, y, r, g, b, a);
+        [RKRGBLEDOutputCommand sendCommandWithRed:r green:g blue:b];
+//        imageXSlider.value = (float)(x/CGImageGetWidth([game cgImage]));
+//        imageYSlider.value = 1 - (y/CGImageGetHeight([game cgImage]));
     }
 }
 
--(void)moveToX:(CGPoint)point{
+-(void)showSpheroTail:(bool)showTail{
+    if(showTail){
+        [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOff];
+    }
+    else{
+        [RKStabilizationCommand sendCommandWithState:RKStabilizationStateOn];
+    }
+    float brightness = (showTail) ? 1.0 : 0.0;
+    [RKBackLEDOutputCommand sendCommandWithBrightness:brightness];
+    [RKConfigureLocatorCommand sendCommandForFlag:RKConfigureLocatorRotateWithCalibrateFlagOff newX:0 newY:0 newYaw:0];
+}
+
+-(void)moveToPoint:(CGPoint)point{
+    //NSLog(@"moveToPoint (%i\t%i)->(%i\t%i)", (int)currentPos.x, (int)currentPos.y, (int)point.x, (int)point.y);
     // Set destination point/heading
     // stop it, rotate it, Send it off
+    targetPos = point;
+    
+    CGPoint vector = ccpSub(targetPos, currentPos);
+    double distance = sqrt( vector.x*vector.x + vector.y*vector.y );
+    if(sqrt( vector.x*vector.x + vector.y*vector.y ) < 15.0){
+        //NSLog(@"DONE!");
+        if(self.keepRolling){
+            // Pick a new coordinate
+            //NSLog(@"KEEP MOVING!");
+            int newX = (arc4random() % 100) - 50;
+            int newY = (arc4random() % 100) - 50;
+            targetPos = ccp(newX,newY);
+        }
+        return;
+    }
+    
+    float heading = M_PI / 2 - atan2(point.y-currentPos.y, point.x - currentPos.x);
+    
+    int headingDegrees = heading * 180 / M_PI ;
+    //headingDegrees -= 270; // Sphero 0 is off Y axis, coord 0 is off X
+    while (headingDegrees < 0) headingDegrees += 360;
+
+    NSLog(@"heading %i", headingDegrees);
+    //headingDegrees = arc4random() % 360;
+    
+    [RKRollCommand sendCommandWithHeading:headingDegrees velocity:0.4];
     
 }
 
